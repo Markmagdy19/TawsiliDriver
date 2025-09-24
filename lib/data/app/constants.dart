@@ -1,5 +1,7 @@
 class Constants {
-  static const String baseUrl1 ="http://127.0.0.1:8000/api";
+  static const String baseUrl1 ="https://tawsili.aura-sys.com/api";
+  // static const String baseUrlLogin ="http://127.0.0.1:8000/api";
+
   static const int apiTimeOut = 60000;
   static const String empty = "";
   static const String token = "SEND TOKEN HERE";

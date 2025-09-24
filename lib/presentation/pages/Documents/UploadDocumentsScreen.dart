@@ -1,17 +1,15 @@
-// lib/presentation/pages/Documents/UploadDocumentsScreen.dart
-
 import 'dart:io';
 import 'package:driverr/data/models/document/document_model.dart';
 import 'package:driverr/presentation/pages/Documents/reviewDocument1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
-
 import '../../../data/datasources/resources/color_manager.dart';
 import '../../../data/repositories/document_repo.dart';
 import '../terms&Condition/terms&Conditions.dart';
+
+
 
 class UploadDocumentsScreen extends ConsumerStatefulWidget {
   const UploadDocumentsScreen({super.key});
