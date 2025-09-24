@@ -168,7 +168,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
     required String confirmPassword,
     required String gender, // ADD THIS LINE
     required String birthDate,
-    required String vehicleType, // ADD THIS LINE
+    // required String vehicleType, // ADD THIS LINE
     String? fcmToken,
     String? deviceName,
   }) async {
@@ -182,7 +182,7 @@ class SignUpNotifier extends StateNotifier<SignUpState> {
         password: password,
         confirmPassword: confirmPassword,
         vehicleType: 'car',
-        gender: gender, // ADD THIS LINE
+        gender: gender,
         birthDate: birthDate,
         fcmToken: fcmToken,
         deviceName: deviceName,

@@ -22,7 +22,6 @@ class ColorManager {
   static Color scaffoldBackground = const Color(0xFFF5F5F5);
   static Color cardBackground = const Color(0xFFFFFFFF);
   static const  Color lightBlueBackground =  Color(0xFFECF2FC); // Added ECF2FC
-
   // Text Colors
   static Color textPrimary = const Color(0xFF212121);
   static Color textSecondary = const Color(0xFF757575);

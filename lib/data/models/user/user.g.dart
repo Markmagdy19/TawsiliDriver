@@ -14,7 +14,6 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
   phone: json['phone'] as String?,
   profilePictureUrl: json['profilePictureUrl'] as String?,
   preferredLanguage: json['preferredLanguage'] as String?,
-
   subscriptions: Subscriptions.fromJson(
     json['subscriptions'] as Map<String, dynamic>,
   ),

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../datasources/resources/language/language_manager.dart';
+import '../../domain/entities/language_manager.dart';
+
 
 
 const String PREFS_KEY_LANG = "PREFS_KEY_LANG";

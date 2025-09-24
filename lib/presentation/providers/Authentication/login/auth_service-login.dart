@@ -91,7 +91,7 @@ class AuthService {
     }
 
     try {
-      final response = await _dio.get('${Constants.baseUrl}/v1/users/${user.uid}/exists');
+      final response = await _dio.get('${Constants.baseUrl1}/v1/users/${user.uid}/exists');
       log('AuthService.userExists: Checking for user with UID: ${user.uid}. Status: ${response.statusCode}');
       return response.statusCode == 200 && response.data['exists'] == true;
     } on DioException catch (e) {
@@ -109,7 +109,7 @@ class AuthService {
     }
 
     try {
-      await _dio.post('${Constants.baseUrl}/v1/users', data: {
+      await _dio.post('${Constants.baseUrl1}/v1/users', data: {
         'uid': user.uid,
         'email': user.email,
         'name': user.displayName,
@@ -158,7 +158,7 @@ class AuthService {
 
     try {
       log('validateTokenApi: Attempting to validate token with backend...');
-      final url = '${Constants.baseUrl1}/client/auth/validate-token';
+      final url = '${Constants.baseUrl1}/driver/auth/validate-token';
       final response = await _dio.post(
         url,
         options: Options(
@@ -319,10 +319,9 @@ class AuthService {
       throw e;
     }
   }
-
   Future<User> fetchUserFromApi(String token) async {
     try {
-      final url = '${Constants.baseUrl1}/client/get-profile';
+      final url = '${Constants.baseUrl1}/driver/get-profile';
       final response = await _dio.get(
         url,
         options: Options(
@@ -335,8 +334,9 @@ class AuthService {
       if (response.statusCode == 200) {
         final responseData = response.data['data'] as Map<String, dynamic>;
         final userData = responseData['user'] as Map<String, dynamic>;
-        final subscriptionsData = responseData['subscriptions'] as Map<String, dynamic>;
-        userData['subscriptions'] = subscriptionsData;
+
+        // Directly pass the `userData` map to `User.fromJson`.
+        // The `User.fromJson` factory already handles the `subscriptions` field gracefully by providing a default value if it's null.
         return User.fromJson(userData);
       } else {
         throw Exception('Failed to fetch user data');
@@ -412,7 +412,7 @@ class AuthService {
   }) async {
     try {
       log('⏳ Attempting social login with type: $socialType');
-      final url = '${Constants.baseUrl1}/client/auth/social';
+      final url = '${Constants.baseUrl1}/driver/auth/social';
 
       final response = await _dio.post(
         url,

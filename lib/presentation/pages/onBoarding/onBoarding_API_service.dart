@@ -14,6 +14,7 @@ class OnBoardingApiResponse {
 
 abstract class OnBoardingApiService {
   Future<OnBoardingApiResponse> fetchOnBoardingData();
+  Future<String> fetchTermsAndConditions(String contentType);
 }
 
 class OnBoardingApiServiceImpl implements OnBoardingApiService {
@@ -68,6 +69,40 @@ class OnBoardingApiServiceImpl implements OnBoardingApiService {
       }
     } on DioException catch (e, st) {
       print(st.toString());
+      throw Exception('Network error: ${e.message}');
+    } catch (e) {
+      throw Exception('Unexpected error: $e');
+    }
+  }
+
+  @override
+  Future<String> fetchTermsAndConditions(String contentType) async {
+    try {
+      final response = await _dio.get(
+        '${Constants.baseUrl1}/driver/content?content_type=terms-and-conditions',
+        queryParameters: {
+          'content_type': contentType,
+        },
+        options: Options(
+          headers: {
+            'Accept-Language': 'en',
+          },
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseBody = response.data as Map<String, dynamic>;
+        final dynamic rawDataField = responseBody['data'];
+
+        if (rawDataField is Map<String, dynamic> && rawDataField.containsKey('content')) {
+          return rawDataField['content'] as String;
+        } else {
+          throw Exception("Unexpected 'data' structure. Expected a Map with 'content' key.");
+        }
+      } else {
+        throw Exception('Failed to load terms and conditions: ${response.statusCode}');
+      }
+    } on DioException catch (e) {
       throw Exception('Network error: ${e.message}');
     } catch (e) {
       throw Exception('Unexpected error: $e');

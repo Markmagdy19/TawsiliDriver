@@ -10,12 +10,12 @@ import '../../../data/app/app_preference.dart';
 import '../../../data/app/constants.dart';
 import '../../../data/datasources/resources/assets_manager.dart';
 import '../../../data/datasources/resources/color_manager.dart';
-import '../../../data/datasources/resources/language/language_manager.dart';
 import '../../../data/datasources/resources/language/language_notifier.dart';
-import '../../../data/datasources/resources/routes_manager.dart';
 import '../../../data/datasources/resources/values_manager.dart';
 import '../../../data/models/sliderViewObject/SliderViewObject.dart';
 import '../../../data/models/slider_objects/Slider_objects.dart';
+import '../../../domain/entities/language_manager.dart';
+import '../../utils/routes_manager.dart';
 import 'onBoarding_viewmodel.dart';
 
 class OnBoardingView extends ConsumerStatefulWidget {

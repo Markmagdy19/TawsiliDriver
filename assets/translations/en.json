@@ -126,6 +126,8 @@
   "Cancel_Your_Upcoming_Ride": "Cancel Your Upcoming Ride",
   "Yes": "Yes",
   "No": "No",
+  "Your_Upcoming_Ride": "Your Upcoming Ride",
+  "Start_Ride": "Start Ride",
   "Are_you_sure_you_wish_to_cancel_your": "Are you sure you wish to cancel your",
   "Cancel_My_Subscription": "Cancel My Subscription",
   "Upcoming_Ride": "Upcoming Ride?",
@@ -275,5 +277,6 @@
   "Submit_a_Complaint":"Submit a Complaint",
   "No_subscription_details_available_Please_enter_valid_code":"No subscription details available. Please enter a valid code.",
   "Scheduled_Bus_Time": "Scheduled Bus Time",
-  "Bus_Details": "Bus Details"
+  "Bus_Details": "Bus Details",
+  "Ride_Historie": "Ride History"
 }

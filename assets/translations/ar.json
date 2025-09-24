@@ -138,7 +138,9 @@
   "Upcoming_Ride": "جولتك القادمة؟",
   "Yes": "نعم",
   "No": "لأ",
+  "Your_Upcoming_Ride": "رحلتك القادمة",
   "Cancel_My_Subscription": "إلغاء الاشتراك",
+  "Start_Ride": "بدأ الرحلة",
   "Upcoming_Bus": "الباص القادم",
   "Here_you_can_view_Your_canceled_subscriptions_details": "هنا يمكنك عرض \nتفاصيل اشتراكاتك الملغاة.",
   "is_on_his_way": " فى الطريق اليك",
@@ -274,5 +276,7 @@
   "Submit_a_Complaint": "إرسال شكوى",
   "No_subscription_details_available_Please_enter_valid_code": "لا توجد تفاصيل اشتراك متاحة. يرجى إدخال رمز صحيح.",
   "Scheduled_Bus_Time": "وقت الحافلة المجدول",
-  "Bus_Details": "تفاصيل الحافلة"
+  "Bus_Details": "تفاصيل الحافلة",
+  "Ride_Historie": "سجل الرحلات"
+
 }

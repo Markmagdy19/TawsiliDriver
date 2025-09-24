@@ -1,4 +1,5 @@
 import 'package:driverr/presentation/pages/login/secondRegistrationScreen.dart';
+import 'package:driverr/presentation/pages/otp_registration/otp_registration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -77,14 +78,14 @@ class SignUpScreenState extends ConsumerState<SignUpScreen> {
         );
         return;
       }
-      if (_selectedVehicleType == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Please select your vehicle type.',
-                  style: TextStyle(fontFamily: 'Poppins'))),
-        );
-        return;
-      }
+      // if (_selectedVehicleType == null) {
+      //   ScaffoldMessenger.of(context).showSnackBar(
+      //     const SnackBar(
+      //         content: Text('Please select your vehicle type.',
+      //             style: TextStyle(fontFamily: 'Poppins'))),
+      //   );
+      //   return;
+      // }
 
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -124,7 +125,7 @@ class SignUpScreenState extends ConsumerState<SignUpScreen> {
         lastName: _lastNameController.text,
         phone: _phoneController.text,
         email: _emailController.text,
-        vehicleType: _selectedVehicleType!,
+        // vehicleType: _selectedVehicleType!,
         password: _passwordController.text,
         gender: _selectedGender!,
         birthDate: formattedBirthDate,
@@ -145,7 +146,7 @@ class SignUpScreenState extends ConsumerState<SignUpScreen> {
         );
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => VehicleInfoScreen()),
+          MaterialPageRoute(builder: (context) => OTPPageRegistration(phoneNumber: _phoneController.text)),
         );
       } else if (state.error != null && mounted) {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();

@@ -89,14 +89,18 @@ dependencies:
   hexcolor: ^3.0.1
   google_maps_place_picker_mb: ^3.1.2
   flutter_html: ^3.0.0
+  freezed_annotation: ^2.4.1
   flutter_hooks: ^0.21.2
   geocoding: ^4.0.0
   device_info_plus: ^10.0.0
+  flutter_local_notifications: ^19.4.2
 
 dev_dependencies:
   build_runner: ^2.4.15
   json_serializable: ^6.9.5
   country_code_picker: ^3.3.0
+  freezed: ^2.5.2
+
 
   flutter_test:
     sdk: flutter
@@ -116,8 +120,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/translations/
+    - assets/images/png/cash.png
     - assets/images/svg/
     - assets/images/png/
+    - assets/images/png/right.png
+
   fonts:
     - family: Poppins
       fonts:

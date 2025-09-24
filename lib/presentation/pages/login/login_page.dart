@@ -1,3 +1,4 @@
+import 'package:driverr/presentation/pages/login/secondRegistrationScreen.dart';
 import 'package:driverr/presentation/pages/login/signUpPage.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ import '../../../data/datasources/resources/values_manager.dart';
 import '../../providers/Authentication/login/auth_service-login.dart';
 import '../../providers/Authentication/login/login_auth.dart';
 import '../HomePage/HomeScreen.dart';
-import 'forgetPasswordPage.dart';
+import 'ForgotPassword/forgetPasswordPage.dart';
 
 
 class SignInScreen extends ConsumerStatefulWidget {
@@ -90,23 +91,19 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     }
   }
 
-// In login_page.dart
 
   Future<void> _login() async {
     if (_formKey.currentState!.validate()) {
-      // Show a loading indicator to the user
-      // ...
+
 
       final String? fcmToken = await _getFcmToken();
       final String? deviceName = await _getDeviceName();
 
-      // --- CRITICAL CHECK ---
       if (fcmToken == null && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Could not initialize notifications. Please check your connection and try again.')),
         );
-        // Hide loading indicator if you showed one
-        return; // Stop the login process
+        return;
       }
 
       try {
@@ -121,8 +118,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         if (state.isAuthenticated && mounted) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
+            MaterialPageRoute(builder: (context) => VehicleInfoScreen()),
           );
+          //VehicleInfoScreen
         } else if (state.error != null && mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.error!)),
@@ -393,26 +391,26 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                     const SizedBox(height: AppSize.s16),
 
                     // Divider
-                    Row(
-                      children: [
-                        const Expanded(child: Divider()),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Text("Or".tr(), style: TextStyle(
-                              color: ColorManager.black,
-                              fontSize: AppSize.s14,
-                              fontFamily: 'Poppins'),),
-                        ),
-                        const Expanded(child: Divider()),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
+                    // Row(
+                    //   children: [
+                    //     const Expanded(child: Divider()),
+                    //     Padding(
+                    //       padding: const EdgeInsets.symmetric(horizontal: 8),
+                    //       child: Text("Or".tr(), style: TextStyle(
+                    //           color: ColorManager.black,
+                    //           fontSize: AppSize.s14,
+                    //           fontFamily: 'Poppins'),),
+                    //     ),
+                    //     const Expanded(child: Divider()),
+                    //   ],
+                    // ),
+                    // const SizedBox(height: 16),
+                    //
+                    // // Social login - Using the new function
+                    // // Ensure buildSocialSignInButtons is defined and takes AuthService
+                    // buildSocialSignInButtons(authService),
 
-                    // Social login - Using the new function
-                    // Ensure buildSocialSignInButtons is defined and takes AuthService
-                    buildSocialSignInButtons(authService),
-
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 20),
 
                     // Login Button
                     SizedBox(
